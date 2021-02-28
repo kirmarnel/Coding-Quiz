@@ -1,8 +1,103 @@
+var questions = [
+    {
+        text: 'What is a true or false statement called in Javascript?',
+        answers: [
+            {
+                text: 'A boolean',
+                correct: true
+            },
+            {
+                text: 'A string',
+                correct: false
+            },
+            {
+                text: 'An object',
+                correct: false
+            },
+            {
+                text: 'An array',
+                correct: false
+            }
+        ]
+    },
+    {
+        text: 'What does CSS stand for?',
+        answers: [
+            {
+                text: 'Custom style sheet',
+                correct: false
+            },
+            {
+                text: 'Cascading style sheet',
+                correct: true
+            },
+            {
+                text: 'Custom sheet styles',
+                correct: false
+            },
+            {
+                text: 'Coding style sheet',
+                correct: false
+            }
+        ]
+    },
+{
+  text: 'Which tag represents the largest Heading?',
+  answers: [
+      {
+          text: '<h6>',
+          correct: false
+      },
+      {
+          text: '<large-heading>',
+          correct: false
+      },
+      {
+          text: '<title>',
+          correct: false
+      },
+      {
+          text: '<h1>',
+          correct: true
+      }
+  ]
+},
+{
+  text: 'Which symbol represents "not" in Javascript?',
+  answers: [
+      {
+          text: '!',
+          correct: true
+      },
+      {
+          text: '$',
+          correct: false
+      },
+      {
+          text: '&',
+          correct: false
+      },
+      {
+          text: '*',
+          correct: false
+      },
+      
+    ]
+}
+]
+
+
+var counter = 15*questions.length;
+var questionsIndex = 0;
+var score=counter
+
+
+
 function startQuiz () {
     //start timer
     start.addEventListener('click', function (){
-    
-        var counter = 120
+        
+       
         var timer = document.getElementById('timer');
         var myInterval = setInterval (function (){
         counter--
@@ -13,40 +108,114 @@ function startQuiz () {
         },1000);
         //Display first question
         
-        function displayQuestion1() {
-          var question1 = document.querySelector('#question');
-          var option1 = document.querySelector('#option1')
-          var option2 = document.querySelector('#option2')
-          var option3 = document.querySelector('#option3')
-          var option4 = document.querySelector('#option4')
-          question1.textContent="What is a true or false statement called in Javascript?";
-          option1.innerHTML= "<input type='radio'>A Boolean</input>"
-          option2.innerHTML= "<input type='radio'>A String</input>"
-          option3.innerHTML= "<input type='radio'>An Oblect</input>"
-          option4.innerHTML= "<input type='radio'>An Array</input>"
-        }
-        displayQuestion1()
-          
+       
+        displayQuestion()
+        
 
-          
-     
+        
+        
     })
+}
+function displayQuestion() {
+  var question1 = document.querySelector('#question');
+  var option1 = document.querySelector('#option1')
+  var option2 = document.querySelector('#option2')
+  var option3 = document.querySelector('#option3')
+  var option4 = document.querySelector('#option4')
+  question1.textContent=questions[questionsIndex].text;
+  option1.textContent= questions[questionsIndex].answers[0].text;
+  option2.textContent= questions[questionsIndex].answers[1].text;
+  option3.textContent= questions[questionsIndex].answers[2].text;
+  option4.textContent= questions[questionsIndex].answers[3].text;
+  
+  option1.addEventListener('click' , function (){
+    var result = document.querySelector('#result')
+    if (questions[questionsIndex].answers[0].correct) {
+      result.textContent='Correct!'
+    }
+    else {
+      result.textContent='Incorrect'
+      counter-=5
+    }
+    if (questionsIndex<3) {
+      questionsIndex++
+      displayQuestion()
+    }
+    else {
+      
+    }
     
+})
+
+option2.addEventListener('click' , function (){
+    var result = document.querySelector('#result')
+    if (questions[questionsIndex].answers[1].correct) {
+      result.textContent='Correct!'
+    }
+    else {
+      result.textContent='Incorrect'
+      counter-=5
+    }
+    if (questionsIndex<3) {
+      questionsIndex++
+      displayQuestion()
+    }
+    else {
+      
+    }
     
+})
+option3.addEventListener('click' , function (){
+    var result = document.querySelector('#result')
+    if (questions[questionsIndex].answers[2].correct) {
+      result.textContent='Correct!'
+    }
+    else {
+      result.textContent='Incorrect'
+      counter-=5
+    }
+    if (questionsIndex<3) {
+      questionsIndex++
+      displayQuestion()
+    }
+    else {
+      
+    }
+})
+option4.addEventListener('click' , function (){
+    var result = document.querySelector('#result')
+    if (questions[questionsIndex].answers[3].correct) {
+      result.textContent='Correct!'
+    }
+    else {
+      result.textContent='Incorrect'
+      counter-=5
+    }
+    if (questionsIndex<3) {
+      questionsIndex++
+      displayQuestion()
+    }
+    else {
+      
+    }
+})
+
 
 }
 
 
-function displayQuestion2() { 
+ 
 
-}
 
 startQuiz()
 
 
-//when user answers, display right or wrong
-//if wrong deduct time
-//track right or wrong
-//next question
-//show results
+
+
+
+
+
+
+
+
 

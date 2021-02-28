@@ -5,3 +5,15 @@ h1 {
 ul {
     list-style: none;
 }
+
+li {
+    background-color: blueviolet;
+    width: 100px;
+    cursor: pointer;
+    margin: 10px;
+    border-radius: 3px;
+    text-align: center;
+}
+
+
+
