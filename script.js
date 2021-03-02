@@ -28,16 +28,16 @@ var questions = [
                 correct: false
             },
             {
-                text: 'Cascading style sheet',
-                correct: true
+                text: 'Coding style sheet',
+                correct: false
             },
             {
                 text: 'Custom sheet styles',
                 correct: false
             },
             {
-                text: 'Coding style sheet',
-                correct: false
+                text: 'Cascading style sheet',
+                correct: true
             }
         ]
     },
@@ -81,39 +81,30 @@ var questions = [
           text: '*',
           correct: false
       },
-      
     ]
 }
 ]
 
-
 var counter = 15*questions.length;
 var questionsIndex = 0;
-var score=counter
-
-
+var question = document.querySelector('#question');
+var quiz = document.querySelector ('#quiz')
 
 function startQuiz () {
     //start timer
     start.addEventListener('click', function (){
         
-       
         var timer = document.getElementById('timer');
         var myInterval = setInterval (function (){
         counter--
         timer.textContent='Seconds Remaining ' + counter
         if (counter===0) {
             clearInterval(myInterval);
+            showScore()
         }
         },1000);
-        //Display first question
         
-       
         displayQuestion()
-        
-
-        
-        
     })
 }
 function displayQuestion() {
@@ -127,6 +118,7 @@ function displayQuestion() {
   option2.textContent= questions[questionsIndex].answers[1].text;
   option3.textContent= questions[questionsIndex].answers[2].text;
   option4.textContent= questions[questionsIndex].answers[3].text;
+
   
   option1.addEventListener('click' , function (){
     var result = document.querySelector('#result')
@@ -142,7 +134,8 @@ function displayQuestion() {
       displayQuestion()
     }
     else {
-      
+      quiz.textContent= "Game Over"
+      showScore()
     }
     
 })
@@ -161,7 +154,8 @@ option2.addEventListener('click' , function (){
       displayQuestion()
     }
     else {
-      
+      quiz.textContent= "Game Over"
+      showScore()
     }
     
 })
@@ -179,7 +173,8 @@ option3.addEventListener('click' , function (){
       displayQuestion()
     }
     else {
-      
+      quiz.textContent= "Game Over"
+      showScore()
     }
 })
 option4.addEventListener('click' , function (){
@@ -196,17 +191,27 @@ option4.addEventListener('click' , function (){
       displayQuestion()
     }
     else {
-      
+      quiz.textContent= "Game Over"
+      showScore()
     }
 })
 
-
 }
+var finalScore; 
+
+function showScore() {
+  var showScore = document.querySelector('#showScore')
+  var score=counter;
+    localStorage.setItem('score' , score);
+    var currentScore=localStorage.getItem('score');
+    showScore.textContent='Your score is ' + currentScore;
+    finalScore = currentScore
+    
+}
+localStorage.setItem('finalScore' , finalScore)
 
 
- 
-
-
+showScore()
 startQuiz()
 
 

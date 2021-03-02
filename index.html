@@ -9,24 +9,33 @@
 </head>
 <body>
     <h1>Coding Quiz!</h1>
-    <h3 id="timer"></h3>
-    <button id="start">Start Quiz</button>
+  
    
     <div id="quiz">
+        <h3 id="timer"></h3>
+        <button id="start">Start Quiz</button>
     <p id="question"></p>
-      <ul>
-          <li id=option1></li>
-          <li id=option2></li>
-          <li id=option3></li>
-          <li id=option4></li>  
-      </ul>   
+    <div id="options">
+        <ul>
+            <li id=option1></li>
+            <li id=option2></li>
+            <li id=option3></li>
+            <li id=option4></li>  
+        </ul>   
     </div>
     <div id='result'>
 
     </div>
-    <div id='score'>
-        <p></p>
+   
     </div>
+    <div id='showScore'>
+
+    </div>
+    <div id='refreshBtn'>
+        <button id='playAgain' onClick="window.location.reload();">Play Again</button>
+    </div>
+    
+   
     <script src=script.js></script>
 </body>
 </html>

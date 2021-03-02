@@ -7,11 +7,36 @@ ul {
 }
 
 li {
-    background-color: blueviolet;
-    width: 100px;
+    background-color: darkslategray;
+    width: 125px;
     cursor: pointer;
     margin: 10px;
     border-radius: 3px;
+    text-align: center;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: lightslategray;
+}
+
+#quiz {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 auto;
+    
+}
+
+#options {
+    margin: 0 auto;
+}
+#results {
+    text-align: center;
+}
+#showScore {
     text-align: center;
 }
 
