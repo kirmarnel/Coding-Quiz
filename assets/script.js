@@ -86,9 +86,11 @@ var questions = [
 ]
 
 var counter = 15*questions.length;
+var actualScore = counter;
 var questionsIndex = 0;
 var question = document.querySelector('#question');
 var quiz = document.querySelector ('#quiz')
+
 
 function startQuiz () {
     //start timer
@@ -100,7 +102,7 @@ function startQuiz () {
         timer.textContent='Seconds Remaining ' + counter
         if (counter===0) {
             clearInterval(myInterval);
-            showScore()
+            
         }
         },1000);
         
@@ -128,14 +130,16 @@ function displayQuestion() {
     else {
       result.textContent='Incorrect'
       counter-=5
+      actualScore-=5;
     }
     if (questionsIndex<3) {
-      questionsIndex++
+      questionsIndex++ 
+      console.log(questionsIndex);
       displayQuestion()
     }
     else {
       quiz.textContent= "Game Over"
-      showScore()
+      
     }
     
 })
@@ -148,14 +152,16 @@ option2.addEventListener('click' , function (){
     else {
       result.textContent='Incorrect'
       counter-=5
+      actualScore-=5;
     }
     if (questionsIndex<3) {
       questionsIndex++
+      console.log(questionsIndex);
       displayQuestion()
     }
     else {
       quiz.textContent= "Game Over"
-      showScore()
+      
     }
     
 })
@@ -167,14 +173,16 @@ option3.addEventListener('click' , function (){
     else {
       result.textContent='Incorrect'
       counter-=5
+      actualScore-=5;
     }
     if (questionsIndex<3) {
       questionsIndex++
+      console.log(questionsIndex);
       displayQuestion()
     }
     else {
       quiz.textContent= "Game Over"
-      showScore()
+      
     }
 })
 option4.addEventListener('click' , function (){
@@ -185,34 +193,31 @@ option4.addEventListener('click' , function (){
     else {
       result.textContent='Incorrect'
       counter-=5
+      actualScore-=5;
     }
     if (questionsIndex<3) {
       questionsIndex++
+      console.log(questionsIndex);
       displayQuestion()
     }
     else {
       quiz.textContent= "Game Over"
-      showScore()
+      
     }
 })
 
+var showScore = document.querySelector('#showScore')
+var score=counter; 
+  localStorage.setItem('score' , score);
+  var currentScore=localStorage.getItem('score');
+  actualScore = currentScore;
+  localStorage.setItem("actual", actualScore);
+  var actual = localStorage.getItem("actual");
+  showScore.textContent='Your highest score is ' + actual;
 }
-var finalScore; 
-
-function showScore() {
-  var showScore = document.querySelector('#showScore')
-  var score=counter;
-    localStorage.setItem('score' , score);
-    var currentScore=localStorage.getItem('score');
-    showScore.textContent='Your score is ' + currentScore;
-    finalScore = currentScore
-    
-}
-localStorage.setItem('finalScore' , finalScore)
-
-
-showScore()
 startQuiz()
+document.querySelector('#showScore').textContent='Your highest score is ' + localStorage.getItem("actual");
+
 
 
 

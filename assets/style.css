@@ -27,6 +27,8 @@ body {
     justify-content: center;
     flex-direction: column;
     margin: 0 auto;
+    border: solid;
+    padding: 10px;
     
 }
 
@@ -39,6 +41,7 @@ body {
 #showScore {
     text-align: center;
 }
+
 
 
 
