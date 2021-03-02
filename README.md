@@ -11,7 +11,7 @@ For this project I created a very simple coding quiz. It consists of four questi
 I found this project extremly challenging, and there are still a few bugs that I was unable to work out. For instance, the second to the last question is skipped, so only three questions end up being displayed. I also had a lof of issues with the styling and getting things to line up how I wanted them to.
 -- 
 ## Deployed Website
-https://kirmarnel.github.io/coding-quiz/ 
+https://kirmarnel.github.io/Coding-Quiz/ 
 
 
 
